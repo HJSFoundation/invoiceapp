@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Invoice Number:</b>
+  <%= @invoice_line.invoice_header_id.to_s.rjust(6, '0') %>
+</p>
+<p>
+  <b>Matter:</b>
+  <%= Matter.find(@invoice_line.matter_id).matter %>
+</p>
+<p>
+  <b>Biller:</b>
+  <%= Biller.find(@invoice_line.biller_id).biller_name %>
+</p>
+
+<p>
+  <b>Rate:</b>
+  <%= number_to_currency(@invoice_line.rate) %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @invoice_line.quantity %>
+</p>
+
+<p>
+  <b>Line total:</b>
+  <%= number_to_currency(@invoice_line.line_total) %>
+</p>
+
+
+<%= link_to 'Edit', edit_polymorphic_path([@invoice_line.invoice_header, @invoice_line]) %> |
+<%= link_to 'Back', [@invoice_line.invoice_header] %>

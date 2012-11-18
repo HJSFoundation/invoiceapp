@@ -1,0 +1,25 @@
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Address 1</th>
+			<th>Address 2</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Zip</th>
+			<th>Phone number</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= @customer.name %></td>
+			<td><%= @customer.address_1 %></td>
+			<td><%= @customer.address_2 %></td>
+			<td><%= @customer.city %></td>
+			<td><%= @customer.state %></td>
+			<td><%= @customer.zip %></td>
+			<td><%= number_to_phone(@customer.phone_number, :area_code => true) %></td>
+			<td class="noborder"><%= link_to 'Edit', edit_customer_path %></td>
+		</tr>
+	</tbody>
+</table>

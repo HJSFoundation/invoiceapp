@@ -1,0 +1,52 @@
+<%= form_for(@invoice_line) do |f| %>
+  <% if @invoice_line.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invoice_line.errors.count, "error") %> prohibited this invoice_line from being saved:</h2>
+
+      <ul>
+      <% @invoice_line.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!--
+  <div class="field">
+    <%= f.label :invoice_header_id %><br />
+    <%= f.number_field :invoice_header_id %>
+  </div>
+-->
+  <div class="field">
+	<%= f.label :customer_id %>
+  </div>
+  <div class="field">
+	<%= collection_select(:invoice_header, :customer_id, Customer.all, :id, :name) %>
+  </div>
+  <div class="field">
+	<%= f.label :matter_id %>
+	<%= f.label :biller_id %>
+	<%= f.label :rate %>
+	<%= f.label :quantity %>
+	<%= f.label :line_total %>
+  </div>
+  <div class="field">
+		<span class="matter_id">
+			<%= collection_select :invoice_line, :matter_id, Matter.all, :id, :matter %>
+		</span>
+		<span class="biller_id">
+			<%= collection_select :invoice_line, :biller_id, Biller.all, :id, :biller_name %>
+		</span>
+		<span class="rate">
+			<%= f.text_field :rate %>
+		</span>
+		<span class="quantity">
+			<%= f.text_field :quantity %>
+		</span>
+		<span class="line_total">
+			<%= f.text_field :line_total %>
+		</span>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

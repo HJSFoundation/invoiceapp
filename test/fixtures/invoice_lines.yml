@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  invoice_header_id: 1
+  biller_id: 1
+  matter_id: 1
+  rate: 9.99
+  quantity: 9.99
+  line_total: 9.99
+
+two:
+  invoice_header_id: 1
+  biller_id: 1
+  matter_id: 1
+  rate: 9.99
+  quantity: 9.99
+  line_total: 9.99

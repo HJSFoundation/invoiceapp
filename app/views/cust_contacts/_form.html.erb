@@ -1,0 +1,33 @@
+<%= form_for([@cust_contact.customer, @cust_contact]) do |f| %>
+  <% if @cust_contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cust_contact.errors.count, "error") %> prohibited this cust_contact from being saved:</h2>
+
+      <ul>
+      <% @cust_contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <h2>Customer: <%= @cust_contact.customer.name %></h2>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.phone_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :primary %><br />
+    <%= f.check_box :primary %>
+  </div>
+  <div class="field">
+	<%= f.text_field(:customer_id, :hidden => true) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

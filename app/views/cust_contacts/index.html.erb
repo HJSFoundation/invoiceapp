@@ -1,0 +1,29 @@
+<h1>Listing cust_contacts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Primary</th>
+    <th>Customer</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cust_contacts.each do |cust_contact| %>
+  <tr>
+    <td><%= cust_contact.name %></td>
+    <td><%= number_to_phone(cust_contact.phone, :area_code => true) %></td>
+    <td><%= cust_contact.primary %></td>
+    <td><%= link_to cust_contact.customer.name, cust_contact.customer %></td>
+    <td><%= link_to 'Show', cust_contact %></td>
+    <td><%= link_to 'Edit', edit_cust_contact_path(cust_contact) %></td>
+    <td><%= link_to 'Destroy', cust_contact, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cust contact', new_cust_contact_path %>

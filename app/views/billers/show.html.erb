@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Biller name:</b>
+  <%= @biller.biller_name %>
+</p>
+
+<p>
+  <b>Rate:</b>
+  <%= number_to_currency(@biller.rate) %>
+</p>
+
+
+<%= link_to 'Edit', edit_biller_path(@biller) %> |
+<%= link_to 'Back', billers_path %>

@@ -1,0 +1,4 @@
+Invoiceapp Items todo
+
+New CustContact on Customer Show page
+Customer Contact phone number not updating correctly

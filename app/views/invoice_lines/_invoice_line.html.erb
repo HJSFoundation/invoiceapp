@@ -1,0 +1,13 @@
+<tr>
+	<td><%= Matter.find(invoice_line.matter_id).matter %></td>
+	<td><%= Biller.find(invoice_line.biller_id).biller_name %></td>
+	<td><%= invoice_line.description %></td>
+	<td><%= number_to_currency(invoice_line.rate) %></td>
+	<td><%= number_with_precision(invoice_line.quantity, :precision => 1) %></td>
+	<td><%= number_to_currency(invoice_line.line_total) %></td>
+	<td><%= link_to invoice_line.id, [invoice_line.invoice_header, invoice_line] %></td>
+	<td class="noborder"><%= link_to 'Delete Line', [invoice_line.invoice_header, invoice_line],
+				:confirm => 'Are you sure?',
+				:method => :delete %></td>
+	<td class="noborder"><%= link_to 'Edit Line', edit_polymorphic_path([invoice_line.invoice_header, invoice_line]) %></td>
+</tr>

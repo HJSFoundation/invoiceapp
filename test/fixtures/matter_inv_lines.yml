@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  matter: 
+  invoice_line: 
+
+two:
+  matter: 
+  invoice_line: 

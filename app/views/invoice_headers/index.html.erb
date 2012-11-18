@@ -1,0 +1,9 @@
+<h1>Invoices</h1>
+<%= render 'headers' %>
+<% if @invoice_headers.empty? %>
+	<em>No invoices found</em>
+<% end %>
+
+<p>
+<%= link_to 'New Invoice header', new_invoice_header_path %>
+</p>

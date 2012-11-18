@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+  <h2>Customer: <%= @cust_contact.customer.name %></h2>
+  <h3>Contact</h3>
+<p>
+  <b>Name:</b>
+  <%= @cust_contact.name %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= number_to_phone(@cust_contact.phone, :area_code => true) %>
+</p>
+
+<p>
+  <b>Primary:</b>
+  <%= check_box_tag('primary', @cust_contact.primary, @cust_contact.primary, :disabled => true)  %>
+</p>
+
+
+<%= link_to 'Edit', edit_polymorphic_path([@cust_contact.customer, @cust_contact]) %> |
+<%= link_to 'Back', @cust_contact.customer %>

@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Invoice Number:</b>
+  <%= @invoice_header.id.to_s.rjust(6, '0') %>
+</p>
+
+<p>
+  <b>Customer Number:</b>
+  <%= @invoice_header.customer_id.to_s.rjust(4, '0') %>
+  <b>Customer Name:</b>
+  <%= Customer.find(@invoice_header.customer_id).name %>
+</p>
+
+<p>
+  <b>Invoice total:</b>
+  <%= number_to_currency(@invoice_header.invoice_lines.sum(:line_total)) %>
+</p>
+
+<h2>Invoice Lines</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Matter</th>
+    <th>Biller</th>
+    <th>Description</th>
+    <th>Rate</th>
+    <th>Quantity</th>
+    <th>Line Total</th>
+    <th>Line ID</th>
+  </tr>
+  </thead>
+  <tbody>
+	<%= render @invoice_header.invoice_lines %>
+  </tbody>
+</table>
+
+<h2>Add a line:</h2>
+<%= render "invoice_lines/form" %>
+
+<%= link_to 'Edit', edit_invoice_header_path(@invoice_header) %> |
+<%= link_to 'Back', invoice_headers_path %>

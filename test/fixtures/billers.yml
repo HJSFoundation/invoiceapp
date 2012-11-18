@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  biller_name: MyString
+  rate: 9.99
+
+two:
+  biller_name: MyString
+  rate: 9.99

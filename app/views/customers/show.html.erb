@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<h2>Customer Info</h2>
+<%= render 'customer' %>
+
+<h3>Contacts</h3>
+  <table>
+	  <thead>
+		<tr>
+			<th>Name</th>
+			<th>Phone</th>
+			<th>Primary</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<%= render @customer.cust_contacts %>
+	</tbody>
+  </table>
+  <%= link_to 'New Contact', new_polymorphic_path([@customer, @customer.cust_contacts.new]) %>
+</p>
+
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

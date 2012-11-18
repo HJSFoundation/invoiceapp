@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Invoice</th>
+    <th>Customer</th>
+    <th>Invoice total</th>
+  </tr>
+
+<% @invoice_headers.each do |invoice_header| %>
+  <tr>
+    <td><%= link_to invoice_header.id.to_s.rjust(6, '0'), invoice_header %></td>
+    <td><%= Customer.find(invoice_header.customer_id).name %></td>
+    <td><%= number_to_currency(invoice_header.invoice_lines.sum(:line_total)) %></td>
+    <td class="noborder"><%= link_to 'Edit', edit_invoice_header_path(invoice_header) %></td>
+    <td class="noborder"><%= link_to 'Destroy', invoice_header, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
