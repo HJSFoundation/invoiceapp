@@ -1,24 +1,25 @@
 <table>
 	<thead>
 		<tr>
-			<th>Name</th>
-			<th>Address 1</th>
-			<th>Address 2</th>
-			<th>City</th>
-			<th>State</th>
-			<th>Zip</th>
-			<th>Phone number</th>
+			<th class="colName">Name</th>
+			<th class="colAdd1">Address 1</th>
+			<th class="colAdd2">Address 2</th>
+			<th class="colCity">City</th>
+			<th class="colState">State</th>
+			<th class="colZip">Zip</th>
+			<th class="colPhone">Phone number</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td><%= @customer.name %></td>
-			<td><%= @customer.address_1 %></td>
-			<td><%= @customer.address_2 %></td>
-			<td><%= @customer.city %></td>
-			<td><%= @customer.state %></td>
-			<td><%= @customer.zip %></td>
-			<td><%= number_to_phone(@customer.phone_number, :area_code => true) %></td>
+			<td class="colName"><%= @customer.name %></td>
+			<td class="colAdd1"><%= @customer.address_1 %></td>
+			<td class="colAdd2"><%= @customer.address_2 %></td>
+			<td class="colCity"><%= @customer.city %></td>
+			<td class="colState"><%= @customer.state %></td>
+			<td class="colZip"><%= @customer.zip %></td>
+			<td class="colPhone"><%= number_to_phone(@customer.phone_number, :area_code => true) %></td>
+			<td class="noborder"><%= link_to 'Invoices', customer_invoices_path(@customer.id) %></td>
 			<td class="noborder"><%= link_to 'Edit', edit_customer_path %></td>
 		</tr>
 	</tbody>

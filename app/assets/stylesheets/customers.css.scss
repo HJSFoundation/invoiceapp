@@ -1,3 +1,33 @@
 // Place all the styles related to the Customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.colName {
+	width: 200px;
+	text-align: left;
+}
+.colAdd1 {
+	width: 150px;
+	text-align: left;
+}
+.colAdd2 {
+	width: 150px;
+	text-align: left;
+}
+.colCity {
+	width: 80px;
+	text-align: center;
+}
+.colState {
+	width: 40px;
+	text-align: center;
+}
+.colZip {
+	width: 80px;
+	text-align: center;
+}
+.colPhone {
+	width:115px;
+	text-align: center;
+}

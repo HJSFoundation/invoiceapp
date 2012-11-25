@@ -1,0 +1,23 @@
+<h1>Listing payments</h1>
+<p id="notice"><%= notice %></p>
+<table>
+  <tr>
+    <th>Invoice header</th>
+    <th>Payment amount</th>
+    <th>Payment date</th>
+    <th>Payment type</th>
+    <th>Payment notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <%= render 'payments' %>
+</table>
+<% if @payments.empty? %>
+	<em>No invoices found</em><br />
+<% end %>
+
+<br />
+
+<%= link_to 'New Payment', new_invoice_payments_path %> | 
+<%= link_to 'Back', :back %>

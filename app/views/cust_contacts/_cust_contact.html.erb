@@ -1,6 +1,9 @@
 <tr>
 	<td><%= cust_contact.name %></td>
 	<td><%= number_to_phone(cust_contact.phone, :area_code => true) %></td>
+	<td><%= cust_contact.email %></td>
+	<td><%= link_to cust_contact.facebook_profile, url_with_protocol(cust_contact.facebook_profile), :target => '_blank' %></td>
+	<td><%= cust_contact.preferred %></td>
 	<td><%= check_box_tag('primary', cust_contact.primary, cust_contact.primary, :disabled => true) %></td>
 	<td class="noborder"><%= link_to 'Edit Contact', edit_polymorphic_path([cust_contact.customer, cust_contact]) %></td>
 	<td class="noborder"><%= link_to 'Delete Contact', [cust_contact.customer, cust_contact],

@@ -1,23 +1,24 @@
-<h1>Listing billers</h1>
-
 <table>
-  <tr>
-    <th>Biller name</th>
-    <th>Rate</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+  <thead>
+	  <tr>
+		<th>Biller name</th>
+		<th>Rate</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	  </tr>
+  </thead>
+  <tbody>
 <% @billers.each do |biller| %>
   <tr>
-    <td><%= biller.biller_name %></td>
-    <td><%= number_to_currency(biller.rate) %></td>
-    <td><%= link_to 'Show', biller %></td>
-    <td><%= link_to 'Edit', edit_biller_path(biller) %></td>
-    <td><%= link_to 'Destroy', biller, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= link_to biller.biller_name, biller %></td>
+	<td><%= number_to_currency(biller.rate) %></td>
+	<td><%#= link_to 'Show', biller %></td>
+	<td><%= link_to 'Edit', edit_biller_path(biller) %></td>
+	<td><%= link_to 'Destroy', biller, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
+  </tbody>
 </table>
 
 <br />

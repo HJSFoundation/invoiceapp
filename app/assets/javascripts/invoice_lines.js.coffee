@@ -11,8 +11,8 @@ $(document).ready ->
       
       # if the id is empty set rate to blank and disable
       id_line_rate = $("input#invoice_line_rate")
+      id_line_rate.attr "disabled", "disabled"
       id_line_rate.val ""
-      id_line_rate.attr("disabled", "disabled")
       id_line_rate
       
     else
@@ -26,8 +26,7 @@ $(document).ready ->
           error: (XMLHttpRequest, errorTextStatus, error) ->
             alert "Failed to submit : " + errorTextStatus + " ;" + error
 
-
-        success: (data) ->
+          success: (data) ->
           
           # Enable the field and set the value equal to the biller's current rate
             id_line_rate = $("input#invoice_line_rate")

@@ -12,9 +12,6 @@
   <% end %>
 
   <div class="field">
-    Invoice Number: <%= @invoice_header.id.to_s.rjust(6, '0') %>
-  </div>
-  <div class="field">
     <%= f.label :customer_id %>
     <%= collection_select :invoice_header, :customer_id, Customer.all, :id, :name %>
   </div>

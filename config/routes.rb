@@ -1,7 +1,10 @@
 Invoiceapp::Application.routes.draw do
 
+  #resources :payments
+
   resources :invoice_headers do  
 	resources :invoice_lines
+	resources :payments
   end
   
   #match 'invoice_lines/:id/edit' => 'invoice_lines#edit'
@@ -21,6 +24,10 @@ Invoiceapp::Application.routes.draw do
   get "home/index"
   
   match '/customer_invoices/:customer_id' => 'invoice_headers#index', :as => 'customer_invoices'
+  match '/invoice_payments/:invoice_header_id' => 'payments#index', :as => 'invoice_payments'
+  match '/invoice_payments/:invoice_header_id/new' => 'payments#new', :as => 'new_invoice_payments'
+  match '/invoice_payments/:invoice_header_id/:id/edit' => 'payments#edit', :as => 'edit_invoice_payments'
+  match '/invoice_payments/:invoice_header_id/:id/destroy' => 'payments#destroy', :as => 'destroy_invoice_payments'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

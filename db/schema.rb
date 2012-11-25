@@ -10,22 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121116010205) do
+ActiveRecord::Schema.define(:version => 20121123205146) do
 
   create_table "billers", :force => true do |t|
     t.string   "biller_name"
-    t.decimal  "rate",        :precision => 10, :scale => 2
+    t.decimal  "rate",        :precision => 10, :scale => 0
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
   end
 
   create_table "cust_contacts", :force => true do |t|
     t.string   "name"
-    t.string   "phone"
+    t.integer  "phone"
     t.boolean  "primary"
-    t.integer  "customer_id", :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "customer_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "email"
+    t.string   "facebook_profile"
+    t.string   "preferred"
   end
 
   create_table "customers", :force => true do |t|
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20121116010205) do
     t.string   "address_2"
     t.string   "city"
     t.string   "state"
-    t.string   "zip"
+    t.integer  "zip"
     t.string   "phone_number"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
@@ -58,16 +61,6 @@ ActiveRecord::Schema.define(:version => 20121116010205) do
     t.datetime "updated_at",                                       :null => false
     t.string   "description"
   end
-
-  create_table "invoice_lines_matters", :id => false, :force => true do |t|
-    t.integer  "matter_id"
-    t.integer  "invoice_line_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  add_index "invoice_lines_matters", ["invoice_line_id"], :name => "index_matter_inv_lines_on_invoice_line_id"
-  add_index "invoice_lines_matters", ["matter_id"], :name => "index_matter_inv_lines_on_matter_id"
 
   create_table "invoices", :force => true do |t|
     t.string   "item"
@@ -93,6 +86,16 @@ ActiveRecord::Schema.define(:version => 20121116010205) do
     t.integer  "customer_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "payments", :force => true do |t|
+    t.integer  "invoice_header_id"
+    t.decimal  "payment_amount",    :precision => 10, :scale => 2
+    t.date     "payment_date"
+    t.string   "payment_type"
+    t.text     "payment_notes"
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
   end
 
 end

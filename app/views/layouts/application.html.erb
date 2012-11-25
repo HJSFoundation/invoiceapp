@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Invoiceapp</title>
+  <title>InvoiceApp</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<h1><a href="/">Invoices</a></h1>
-<%= yield %>
-
+	<div id="main">
+		<h1><a href="/">InvoiceApp</a></h1>
+		<div id="menubar">
+			<ul id="menu">
+				<%= content_tag(:li, link_to("Home", "/"), :class => is_active?("home")) %>
+				<%= content_tag(:li, link_to("Customers", customers_path), :class => is_active?("customers")) %></li>
+				<%= content_tag(:li, link_to("Billers", billers_path), :class => is_active?("billers")) %>
+				<%= content_tag(:li, link_to("Matters", matters_path), :class => is_active?("matters")) %>
+				<%= content_tag(:li, link_to("Invoices", invoice_headers_path), :class => is_active?("invoice_headers")) %>
+			</ul>
+		</div>
+		<div id="site_content">
+			<%= yield %>
+		</div>
+	</div>
 </body>
 </html>

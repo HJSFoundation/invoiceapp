@@ -1,42 +1,55 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Invoice Number:</b>
+  <b>Invoice Number: </b>
   <%= @invoice_header.id.to_s.rjust(6, '0') %>
+  <b>Invoice Date: </b>
+  <%= @invoice_header.created_at.strftime("%m/%d/%Y") %>
 </p>
 
 <p>
-  <b>Customer Number:</b>
-  <%= @invoice_header.customer_id.to_s.rjust(4, '0') %>
-  <b>Customer Name:</b>
-  <%= Customer.find(@invoice_header.customer_id).name %>
+  <b>Customer Name: </b>
+  <%= link_to Customer.find(@invoice_header.customer_id).name, @invoice_header.customer %>
+  <b>Customer Number: </b>
+  <%= link_to @invoice_header.customer_id.to_s.rjust(4, '0'), @invoice_header.customer %>
 </p>
 
 <p>
-  <b>Invoice total:</b>
+  <b>Invoice total: </b>
   <%= number_to_currency(@invoice_header.invoice_lines.sum(:line_total)) %>
+</p>
+
+<p>
+  <b>Paid: </b>
+  <%= link_to number_to_currency(@invoice_header.payments.sum(:payment_amount)), invoice_payments_path(@invoice_header.id) %>
+</p>
+
+<p>
+  <b>Amount Due: </b>
+  <%= number_to_currency(@invoice_header.invoice_lines.sum(:line_total) - @invoice_header.payments.sum(:payment_amount)) %>
 </p>
 
 <h2>Invoice Lines</h2>
 <table>
   <thead>
   <tr>
-    <th>Matter</th>
-    <th>Biller</th>
-    <th>Description</th>
-    <th>Rate</th>
-    <th>Quantity</th>
+    <th class="colMatter">Matter</th>
+    <th class="colBiller">Biller</th>
+    <th class="colDesc">Description</th>
+    <th class="colRate">Rate</th>
+    <th class="colQuantity">Quantity</th>
     <th>Line Total</th>
+<!--
     <th>Line ID</th>
+-->
   </tr>
   </thead>
   <tbody>
 	<%= render @invoice_header.invoice_lines %>
+	<%= render "invoice_lines/form" %>
   </tbody>
 </table>
-
-<h2>Add a line:</h2>
-<%= render "invoice_lines/form" %>
+<br />
 
 <%= link_to 'Edit', edit_invoice_header_path(@invoice_header) %> |
 <%= link_to 'Back', invoice_headers_path %>

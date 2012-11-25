@@ -48,7 +48,7 @@ class CustContactsController < ApplicationController
 
     respond_to do |format|
       if @cust_contact.save
-        format.html { redirect_to [@cust_contact.customer, @cust_contact], :notice => 'Contact was successfully created.' }
+        format.html { redirect_to @cust_contact.customer, :notice => 'Contact was successfully created.' }
         format.json { render :json => @cust_contact, :status => :created, :location => @cust_contact }
       else
         format.html { render :action => "new" }
