@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121123205146) do
+ActiveRecord::Schema.define(:version => 20121125175247) do
 
   create_table "billers", :force => true do |t|
     t.string   "biller_name"
@@ -54,9 +54,9 @@ ActiveRecord::Schema.define(:version => 20121123205146) do
     t.integer  "invoice_header_id"
     t.integer  "biller_id"
     t.integer  "matter_id"
-    t.decimal  "rate",              :precision => 10, :scale => 2
-    t.decimal  "quantity",          :precision => 10, :scale => 2
-    t.decimal  "line_total",        :precision => 10, :scale => 2
+    t.decimal  "rate",              :precision => 10, :scale => 0
+    t.decimal  "quantity",          :precision => 10, :scale => 0
+    t.decimal  "line_total",        :precision => 10, :scale => 0
     t.datetime "created_at",                                       :null => false
     t.datetime "updated_at",                                       :null => false
     t.string   "description"

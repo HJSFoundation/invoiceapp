@@ -6,8 +6,8 @@ class CreateCustomers < ActiveRecord::Migration
       t.string :address_2
       t.string :city
       t.string :state
-      t.integer :zip
-      t.integer :phone_number
+      t.string :zip
+      t.string :phone_number
 
       t.timestamps
     end
