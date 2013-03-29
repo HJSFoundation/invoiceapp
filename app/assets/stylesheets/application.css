@@ -72,7 +72,7 @@ a, a:hover {
 	color: #1D1D1D;
 	background: transparent;
 	outline: none;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 a:hover { 
@@ -108,20 +108,22 @@ span.line_total {
 }
   
 #header { 
-	width: 1075px;
+	width: 920px;
+	height: 100px;
 	background: transparent;
 }
 
-#banner{ width: 920px;
+#banner{ 
+  width: 920px;
   position: relative;
   height: 50px;
   padding: 15px 0 0 0;
   background: transparent;}
 
-#menubar{ width: 623px;
+#menubar{ width: 920px;
   height: 50px;
   text-align: center; 
-  margin: 0 0 40px 0;
+  margin: 20px auto;
   background: #1D1D1D;
   background: -moz-linear-gradient(#535353, #1d1d1d);
   background: -o-linear-gradient(#535353, #1d1d1d);
@@ -199,7 +201,9 @@ ul#menu li:hover a { color: #1D1D1D;
   overflow: hidden;
 */
   margin: 0 auto;
+/*
   margin-left: 50px;
+*/
 } 
 
 .sidebar_container { float: left;

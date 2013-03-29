@@ -4,16 +4,12 @@
     <th>Customer</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @matters.each do |matter| %>
   <tr>
     <td><%= matter.matter %></td>
     <td><%= link_to matter.customer.name, matter.customer %></td>
-<!--
-    <td><%#= link_to 'Show', matter %></td>
--->
     <td><%= link_to 'Edit', edit_matter_path(matter) %></td>
     <td><%= link_to 'Destroy', matter, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

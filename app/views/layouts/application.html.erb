@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-<html>
 <head>
   <title>InvoiceApp</title>
+  <meta charset="UTF-8">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<div id="main">
-		<h1><a href="/">InvoiceApp</a></h1>
+		<div id="header">
+			<div id="banner">
+				<div id="welcome">
+					<h1><a href="/">InvoiceApp</a></h1>
+				</div> <!--close welcome-->
+			</div> <!--close banner-->
+		</div> <!--close header-->
 		<div id="menubar">
 			<ul id="menu">
 				<%= content_tag(:li, link_to("Home", "/"), :class => is_active?("home")) %>
-				<%= content_tag(:li, link_to("Customers", customers_path), :class => is_active?("customers")) %></li>
+				<%= content_tag(:li, link_to("Customers", customers_path), :class => is_active?("customers")) %>
 				<%= content_tag(:li, link_to("Billers", billers_path), :class => is_active?("billers")) %>
 				<%= content_tag(:li, link_to("Matters", matters_path), :class => is_active?("matters")) %>
 				<%= content_tag(:li, link_to("Invoices", invoice_headers_path), :class => is_active?("invoice_headers")) %>
 			</ul>
-		</div>
+		</div> <!--close menubar-->
 		<div id="site_content">
 			<%= yield %>
-		</div>
-	</div>
+		</div> <!--close site_content-->
+	</div> <!--main-->
+	
+	<div id="footer">
+	  <a href="http://validator.w3.org/check?uri=referer">Valid HTML5</a> | website template by <a href="http://www.araynordesign.co.uk">ARaynorDesign</a>
+  </div><!--close footer-->  
 </body>
 </html>

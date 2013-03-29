@@ -1,14 +1,14 @@
 <%= form_for([@invoice_header, @invoice_header.invoice_lines.build]) do |f| %>
-	<tr>
-		<td class="colMatter"><%= collection_select :invoice_line, :matter_id, Matter.where("customer_id = ?", @invoice_header.customer_id), :id, :matter, options = { :prompt => "" } %></td>
-		<td class="colBiller"><%= collection_select :invoice_line, :biller_id, Biller.all, :id, :biller_name, options = { :prompt => "" } %></td>
-		<td class="colDesc"><%= f.text_field :description %></td>
-		<td class="colRate"><%= f.text_field :rate, :disabled => "disabled", :size => 8 %></td>
-		<td class="colQuantity"><%= f.text_field :quantity, :size => 8 %></td>
-		<td>
-			<div class="actions">
-				<%= f.submit %>
-			</div>
-		</td>
-	</tr>
+	<table>
+		<tbody>
+			<tr>
+				<td class="colMatter"><%= collection_select :invoice_line, :matter_id, Matter.where("customer_id = ?", @invoice_header.customer_id), :id, :matter, options = { :prompt => "" } %></td>
+				<td class="colBiller"><%= collection_select :invoice_line, :biller_id, Biller.all, :id, :biller_name, options = { :prompt => "" } %></td>
+				<td class="colDesc"><%= f.text_field :description, :size => 20 %></td>
+				<td class="colRate"><%= f.text_field :rate, :disabled => "disabled", :size => 8 %></td>
+				<td class="colQuantity"><%= f.text_field :quantity, :size => 8 %></td>
+				<td><%= f.submit %></td>
+			</tr>
+		</tbody>
+	</table>
 <% end %>

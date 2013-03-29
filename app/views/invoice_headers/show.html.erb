@@ -30,25 +30,8 @@
 </p>
 
 <h2>Invoice Lines</h2>
-<table>
-  <thead>
-  <tr>
-    <th class="colMatter">Matter</th>
-    <th class="colBiller">Biller</th>
-    <th class="colDesc">Description</th>
-    <th class="colRate">Rate</th>
-    <th class="colQuantity">Quantity</th>
-    <th>Line Total</th>
-<!--
-    <th>Line ID</th>
--->
-  </tr>
-  </thead>
-  <tbody>
-	<%= render @invoice_header.invoice_lines %>
-	<%= render "invoice_lines/form" %>
-  </tbody>
-</table>
+<%= render "invoice_lines/invoice_line" %>
+<%= render "invoice_lines/form" %>
 <br />
 
 <%= link_to 'Edit', edit_invoice_header_path(@invoice_header) %> |
