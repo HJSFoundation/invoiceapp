@@ -32,11 +32,9 @@ test:
   socket: /var/run/mysqld/mysqld.sock
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: invoiceapp_production
+  adapter: postgresql
+  encoding: unicode
+  database: d976cqlbd66sb
   pool: 5
-  username: root
-  password: blaster
-  socket: /var/run/mysqld/mysqld.sock
+  username: wkbzhptheqpzzg
+  password: OEUP7fga2egZe3lH6PcqMMfMpm
